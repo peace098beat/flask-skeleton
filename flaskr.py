@@ -50,7 +50,6 @@ def connect_db():
 
 # DBの初期化
 def init_db():
-    print '__name__'
     with closing(connect_db()) as db:
         with app.open_resource('schema.sql') as f:
             db.cursor().executescript(f.read())
@@ -68,7 +67,6 @@ def init_db():
 # リクエストに対する前処理
 @app.before_request
 def before_request():
-    print '__before_request()__'
     # リクエストがきたらまずDBへ接続する。
     g.db = connect_db()
 
@@ -76,7 +74,6 @@ def before_request():
 # リクエストに対する後処理
 @app.teardown_request
 def teardown_request(exception):
-    print __name__
     db = getattr(g, 'db', None)
     if db is not None:
         db.close()
@@ -182,5 +179,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    print __name__
     app.run(debug=True)
