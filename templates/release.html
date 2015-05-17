@@ -1,0 +1,35 @@
+<!-- 
+
+	release.html
+	version管理情報ページのテンプレート
+
+	継承元: layout.html
+	CSS: bootstrap
+ -->
+
+
+<!-- 親となるテンプレートを継承 -->
+{% extends "layout.html" %}
+
+<!-- contents -->
+{% block content %}
+
+<div class="container">
+  <h2>Release</h2>
+  <p>version情報です。</p>
+
+  <h3>ver0.0</h3>
+  <p>テンプレートを継承。</p>
+
+</div>
+{% endblock content %}
+
+
+<!-- scripts -->
+{% block scripts %}
+    <!-- 親を継承 -->
+    {{ super() }}
+	<script>
+	</script>
+{%- endblock scripts %}
+
