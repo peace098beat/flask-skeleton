@@ -8,7 +8,7 @@ Flaskのスケルトンを作成しておく。
 
 
 ## ファイル
-./
+flask-skelelton/
 	/flaskr.py
 	/schema.py
 	/schema.sql
@@ -26,10 +26,10 @@ Flaskのスケルトンを作成しておく。
 
 ## 機能
 - メイン画面
-show_entries.html
-index.html
+-- index.html
+-- show_entries.html
 - ログイン/ログアウト機能
-ログイン/ログアウトの機能を備えており、ログイン/アウトの状態により表示を変更できる。
+-- ログイン/ログアウトの機能を備えており、ログイン/アウトの状態により表示を変更できる。
 
 
 ## CSSフレームワーク
@@ -48,3 +48,10 @@ index.html
 
 ## 初めての使い方
 
+コマンドラインからflaskr.pyを起動
+
+	$ python flaskr.py
+
+ブラウザでアクセス
+
+	http://127.0.0.1:5000/
