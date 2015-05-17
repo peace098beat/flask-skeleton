@@ -8,7 +8,7 @@ from flask import url_for, abort, render_template, flash
 # css
 from flask_bootstrap import Bootstrap
 # user module
-import user_module
+# import user_module
 
 #########################################################################
 #
