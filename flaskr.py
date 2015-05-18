@@ -8,7 +8,7 @@ from flask import url_for, abort, render_template, flash
 # css
 from flask_bootstrap import Bootstrap
 # user module
-# import user_module
+from umod.user_module import *
 
 #########################################################################
 #
@@ -179,4 +179,6 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    user_module_demo()
+    user_module_func()
+    app.run(host='0.0.0.0', debug=True)
