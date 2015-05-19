@@ -4,5 +4,5 @@ import cgitb
 cgitb.enable()
 
 from wsgiref.handlers import CGIHandler
-from flaskr import app
+from flaskapp.flaskr import app
 CGIHandler().run(app)

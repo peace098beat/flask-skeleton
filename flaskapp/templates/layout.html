@@ -1,0 +1,67 @@
+<!-- 
+
+  layout.html
+  基本レイアウトテンプレート
+
+  継承元: bootstrapbase.html
+  CSS: bootstrap
+
+ -->
+
+<!-- 親となるテンプレートを継承 -->
+{% extends "bootstrapbase.html" %}
+<!-- 親テンプレートのbody要素を書き変え　 -->
+
+<!-- css -->
+{%- block styles %}
+  {{ super() }}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  {% if config.CSS_DEBUG %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css_debug.css') }}">
+  {% endif %}
+{%- endblock styles %}
+
+
+<!-- header -->
+{% block header %}
+  <header class="container">
+    <div class="page-header">
+      <h1>Your App Name <small>first application</small></h1>
+      <div class="mini-navi">
+        <a href="{{ url_for('index')}}">home</a> / 
+        <a href="{{ url_for('about')}}">about</a> / 
+        <a href="{{ url_for('release')}}">release</a> / 
+        <a href="{{ url_for('css_design')}}">css_design</a> / 
+      </div>
+    </div>
+  </header>
+{% endblock header %}
+
+
+<!-- contents -->
+{% block content %}
+<div class="container">
+  <h1>index.htmlのコンテンツ要素です</h1>
+  <p>継承してオーバーライドして下さい</p>
+</div>
+{% endblock content %}
+
+
+<!-- footer -->
+{% block footer %}
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <!-- <p>201* flask-skeleton</p> -->
+  <!-- </div> -->
+</footer>
+{% endblock footer %}
+
+
+<!-- scripts -->
+{% block scripts %}
+    <!-- 親を継承 -->
+    {{ super() }}
+    <script src="{{ url_for('static', filename='./js/user-script.js') }}"></script>
+{%- endblock scripts %}
+
+

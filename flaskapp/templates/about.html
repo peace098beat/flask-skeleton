@@ -1,0 +1,34 @@
+<!-- 
+
+	index.html
+	コンテンツ要素のテンプレート
+
+	継承元: layout.html
+	描画部: content
+
+	CSS: bootstrap
+ -->
+
+
+<!-- 親となるテンプレートを継承 -->
+{% extends "layout.html" %}
+
+<!-- contents -->
+{% block content %}
+
+<div class="container">
+  <h2>about</h2>
+  <p>aboutページです。</p>
+
+</div>
+{% endblock content %}
+
+
+<!-- scripts -->
+{% block scripts %}
+    <!-- 親を継承 -->
+    {{ super() }}
+	<script>
+	</script>
+{%- endblock scripts %}
+
