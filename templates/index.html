@@ -20,6 +20,13 @@
   <canvas id='c'></canvas>
   <p>Canvasサンプル</p>
   <p>Canvasを利用するために、javascriptを設置する。htmlファイル内外は問わないが、html内の方が管理は楽</p>
+  
+  <button id='ajax'>
+    <span>Ajax</span>
+    <p id='ajax-ret'></p>
+   </button>
+   <p>Ajaxサンプル</p>
+   <p>flaskr.py内のajax_getJsonにて記述している。</p>
 </div>
 {% endblock content %}
 
@@ -28,6 +35,20 @@
 {% block scripts %}
     <!-- 親を継承 -->
     {{ super() }}
+    <script>
+    	$(function(){
+			var pn = 0;
+    		$('#ajax').click(function(){
+    			$.getJSON('/_ajax_getJSON', {
+    				a: parseInt(pn),
+    			}, function(data){
+    				// debug
+    				$("#ajax-ret").text(data.result.inc);
+    				pn = data.result.inc;
+    			})
+    		});
+    	});
+    </script>
     <!-- 以下はDEMO用のjavascript -->
 	<script>
 		// **************************************************************

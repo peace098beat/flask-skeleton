@@ -5,6 +5,7 @@ import sqlite3
 from contextlib import closing
 from flask import Flask, request, session, g, redirect
 from flask import url_for, abort, render_template, flash
+from flask import jsonify  # Ajax
 # css
 from flask_bootstrap import Bootstrap
 # user module
@@ -129,6 +130,21 @@ def add_entry():
     g.db.commit()
     flash(u'新しいエントリーが追加されました')
     return redirect(url_for('show_entries'))
+
+
+# Ajaxを使って選択要素の情報を取得
+# http://runnable.com/UiPhLHanceFYAAAP/how-to-perform-ajax-in-flask-for-python
+@app.route('/_ajax_getJSON')
+def ajax_getJSON():
+    arg = request.args.get('a', 0, type=int)
+
+    inc = arg + 1
+    dec = arg - 1
+
+    ret = dict(inc=inc, dec=dec)
+    ret_json = jsonify(result=ret)
+
+    return ret_json
 
 
 #########################################################################
