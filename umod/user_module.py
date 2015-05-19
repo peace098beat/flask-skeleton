@@ -20,11 +20,13 @@ class user_module_demo():
         self.func_print(self.txt)
 
     def func_print(self, s):
-        print s
+        # print s
+        pass
 
 
 def user_module_func(txt='== user_module_func =='):
-    print txt
+    # print txt
+    pass
 
 if __name__ == '__main__':
     user_module_demo()
